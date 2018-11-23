@@ -36,14 +36,16 @@
         if (!audio) return;
         audio.currentTime = 0;
         audio.play();
-      };
+      }
+
+      function removeStyling(event) {
+        const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+        key.classList.remove("playing");
+      }
 
       window.addEventListener("keydown", startSound);
 
-      window.addEventListener("keyup", (event) => {
-        const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
-        key.classList.remove("playing");
-      });
+      window.addEventListener("keyup", removeStyling);
     </script>
   </body>
 </html>

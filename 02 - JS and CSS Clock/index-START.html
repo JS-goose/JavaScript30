@@ -75,6 +75,12 @@
     const minuteHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
 
+    function setDate() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+    }
+
+    setInterval(setDate, 1000);
   </script>
 </body>
 </html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scoped CSS Variables and JS</title>
+  </head>
+  <body>
+    <h2>
+      U<span class="hl">p</span>d<span class="hl">a</span>t<span class="hl">e</span>
+      <span class="hl2">CSS</span> Variables <span class="hl2">with</span> <span class="hl">JS</span>
+    </h2>
+
+    <div class="controls">
+      <label for="spacing">Spacing:</label>
+      <input
+        id="spacing"
+        type="range"
+        name="spacing"
+        min="10"
+        max="200"
+        value="10"
+        data-sizing="px"
+      />
+
+      <label for="blur">Blur:</label>
+      <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px" />
+
+      <label for="rotation">Base Rotation:</label>
+      <input id="rotation" type="range" name="rotation" min="0" max="360" data-sizing="deg" />
+
+      <label for "bord-rad">Base Border:</label>
+      <input id="bord-rad" type="range" name="bord-rad" min="0" max="200" data-sizing="px" />
+
+      <label for "skew-x">Base Skew-X:</label>
+      <input id="skew-x" type="range" name="skew-x" min="0" max="200" value="0" data-sizing="deg" />
+
+      <label for "skew-y">Base Skew-Y:</label>
+      <input id="skew-y" type="range" name="skew-y" min="0" max="200" value="0" data-sizing="deg" />
+
+      <label for="base-color">Base Color:</label>
+      <input id="base-color" type="color" name="base-color" name="base-color-2" value="#ffc600" />
+
+    </div>
+
+    <section class="image-container">
+      <img src="https://source.unsplash.com/random/300x300" />
+      <img src="https://source.unsplash.com/random/300x300" />
+      <img src="https://source.unsplash.com/random/300x300" />
+    </section>
+
+    <style>
+      :root {
+        --base-color: #98c3fc;
+        --base-color-2: #ffc600;
+        --spacing: 10px;
+        --blur: 0px;
+        --rotation: 0deg;
+        --bord-rad: 0px;
+        --skew-x: 0deg;
+        --skew-y: 0deg;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: space-around;
+        transform: skew(var(--skew-x),var(--skew-y));
+      }
+
+      img {
+        background: var(--base-color);
+        padding: var(--spacing);
+        filter: blur(var(--blur));
+        transform: rotate(var(--rotation));
+        border: 1px solid black;
+        border-radius: var(--bord-rad);
+      }
+
+      .hl {
+        color: var(--base-color);
+      }
+
+      .hl2 {
+        color: var(--base-color-2);
+      }
+
+      /*
+      misc styles, nothing to do with CSS variables
+    */
+
+      body {
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: "helvetica neue", sans-serif;
+        font-weight: 100;
+        font-size: 30px;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-flow: row wrap;
+        padding: 20px;
+        border: 3px solid black;
+        border-radius: 5px;
+        margin-bottom: 50px;
+        background: var(--base-color-2);
+      }
+
+      input {
+        width: 150px;
+      }
+    </style>
+
+    <script>
+      const controls = document.querySelectorAll(".controls input");
+
+      controls.forEach((control) => control.addEventListener("change", updateValues));
+      controls.forEach((control) => control.addEventListener("mousemove", updateValues));
+
+      function updateValues() {
+        const suffix = this.dataset.sizing || "";
+        const value = this.value;
+
+        document.documentElement.style.setProperty(`--${this.name}`, value + suffix);
+      }
+    </script>
+  </body>
+</html>

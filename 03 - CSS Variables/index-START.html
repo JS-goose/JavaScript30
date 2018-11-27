@@ -29,7 +29,7 @@
       <input id="base-color" type="color" name="base-color" name="base-color-2" value="#ffc600" />
 
       <label for="rotation">Base Rotation:</label>
-      <input id="rotation" type="range" name="rotation" min="0" max="100" data-sizing="px" />
+      <input id="rotation" type="range" name="rotation" min="0" max="360" data-sizing="deg" />
     </div>
 
     <section class="image-container">
@@ -43,6 +43,7 @@
         --base-color-2: #ffc600;
         --spacing: 10px;
         --blur: 0px;
+        --rotation: 0deg;
       }
 
       .image-container {
@@ -54,6 +55,7 @@
         background: var(--base-color);
         padding: var(--spacing);
         filter: blur(var(--blur));
+        transform: rotate(var(--rotation));
       }
 
       .hl {

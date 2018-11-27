@@ -45,6 +45,11 @@
   </style>
 
   <script>
+    const controls = document.querySelectorAll('.controls input');
+    
+    controls.forEach((control) => control.addEventListener('change', updateValues));
+    controls.forEach((control) => control.addEventListener('mousemove', updateValues));
+   
   </script>
 
 </body>

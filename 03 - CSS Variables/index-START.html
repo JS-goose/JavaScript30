@@ -62,7 +62,10 @@
     controls.forEach((control) => control.addEventListener('mousemove', updateValues));
 
     function updateValues () {
-      console.log(this.name);
+      const suffix = this.dataset.sizing || "";
+      const value = this.value;
+
+      document.documentElement.style.setProperty(`--${this.name}`,value + suffix);
     }
    
   </script>

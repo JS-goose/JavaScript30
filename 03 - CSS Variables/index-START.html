@@ -29,7 +29,7 @@
       <input id="rotation" type="range" name="rotation" min="0" max="360" data-sizing="deg" />
 
       <label for "bord-rad">Base Border:</label>
-      <input id="bord-rad" type="range" name="bord-rad" min="0" max="50" data-sizing="px" />
+      <input id="bord-rad" type="range" name="bord-rad" min="0" max="200" data-sizing="px" />
 
       <label for="base-color">Base Color:</label>
       <input id="base-color" type="color" name="base-color" name="base-color-2" value="#ffc600" />
@@ -55,7 +55,6 @@
       .image-container {
         display: flex;
         justify-content: space-around;
-        border-radius: var(--bord-rad);
       }
 
       img {
@@ -63,6 +62,8 @@
         padding: var(--spacing);
         filter: blur(var(--blur));
         transform: rotate(var(--rotation));
+        border: 1px solid black;
+        border-radius: var(--bord-rad);
       }
 
       .hl {

@@ -49,6 +49,10 @@
     
     controls.forEach((control) => control.addEventListener('change', updateValues));
     controls.forEach((control) => control.addEventListener('mousemove', updateValues));
+
+    function updateValues () {
+      console.log(this.value);
+    }
    
   </script>
 

@@ -14,8 +14,8 @@
     <label for="blur">Blur:</label>
     <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
 
-    <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+    <label for="base-color">Base Color</label>
+    <input id="base-color" type="color" name="base" value="#ffc600">
   </div>
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
@@ -62,7 +62,7 @@
     controls.forEach((control) => control.addEventListener('mousemove', updateValues));
 
     function updateValues () {
-      console.log(this.value);
+      console.log(this.name);
     }
    
   </script>

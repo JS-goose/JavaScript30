@@ -149,14 +149,12 @@
       };
 
       const transitionEnd = function() {
-        this.style.translateY = 0;
+        upperText.style.transform = "translateY(0)";
       }
 
       panels.forEach((panel) => {
         panel.addEventListener("click", openFunc);
-        panel.addEventListener("transitionend", (event) => {
-          console.log(this);
-        })
+        panel.addEventListener("transitionend", transitionEnd);
       });
 
       

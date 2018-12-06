@@ -148,13 +148,13 @@
         this.classList.toggle("open");
       };
 
-      const transitionEnd = function() {
+      const transitionEndFunc = function() {
         upperText.style.transform = "translateY(0)";
       }
 
       panels.forEach((panel) => {
         panel.addEventListener("click", openFunc);
-        panel.addEventListener("transitionend", transitionEnd);
+        panel.addEventListener("transitionend", transitionEndFunc);
       });
 
       

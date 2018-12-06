@@ -142,11 +142,15 @@
     <script>
       const panels = document.querySelectorAll(".panel");
       const upperText = document.querySelectorAll(".panel p:nth-child(1)")
-      const lowerText = document.querySelectorAll("panel p:nth-child(3)")
+      const lowerText = document.querySelectorAll(".panel p:nth-child(3)")
 
       const openFunc = function() {
         this.classList.toggle("open");
       };
+
+      const transitionEnd = function() {
+        this.style.translateY = 0;
+      }
 
       panels.forEach((panel) => {
         panel.addEventListener("click", openFunc);

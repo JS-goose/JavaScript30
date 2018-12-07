@@ -141,21 +141,13 @@
 
     <script>
       const panels = document.querySelectorAll(".panel");
-      const upperText = document.querySelectorAll(".panel p:nth-child(1)")
-      const lowerText = document.querySelectorAll(".panel p:nth-child(3)")
 
       const openFunc = function() {
         this.classList.toggle("open");
       };
 
-      const transitionEndFunc = function() {
-        upperText.style.transform = "translateY(0)";
-      }
-
-      panels.forEach((panel) => {
-        panel.addEventListener("click", openFunc);
-        panel.addEventListener("transitionend", transitionEndFunc);
-      });
+      panels.forEach((panel) => panel.addEventListener("click", openFunc));
+      panels.forEach((panel) => panel.addEventListener("transitionend", activeTrans));
 
       
     </script>

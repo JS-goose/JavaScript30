@@ -86,12 +86,20 @@
         align-items: center;
       }
 
-      .panel p:nth-child(1) {
+      .panel > *:first-child {
         transform: translateY(-250px);
       }
 
-      .panel p:nth-child(3) {
+      .panel > *:last-child {
         transform: translateY(250px);
+      }
+
+      .panel.open-active > *:first-child {
+        transform: translateY(0);
+      }
+
+      .panel.open-active > *:last-child {
+        transform: translateY(0);
       }
 
       .panel p {
@@ -146,10 +154,15 @@
         this.classList.toggle("open");
       };
 
+      const activeTrans = function(e) {
+        console.log(e);
+        if (e.propertyName.includes("font")) {
+          this.classList.toggle("open-active");
+        }
+      };
+
       panels.forEach((panel) => panel.addEventListener("click", openFunc));
       panels.forEach((panel) => panel.addEventListener("transitionend", activeTrans));
-
-      
     </script>
   </body>
 </html>

@@ -21,6 +21,12 @@
       fetch(endpoint)
         .then((response) => response.json())
         .then((data) => locations.push(...data));
+
+    function(match, locations) {
+      return locations.filter((location) => {
+        const regex = new RegExp(match, 'gi');
+        
+      })
     }  
     </script>
   </body>

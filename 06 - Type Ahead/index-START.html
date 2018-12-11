@@ -32,6 +32,10 @@
     function showMatches() {
       console.log(this.value);
     }
+
+    const searchInput = document.querySelector('form input[type=text]');
+    const suggestions = document.querySelector('.suggestions');
+    searchInput.addEventListener('keydown', showMatches);
     </script>
   </body>
 </html>

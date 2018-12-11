@@ -25,17 +25,20 @@
     function locationMatch(match, locations) {
       return locations.filter((location) => {
         const regex = new RegExp(match, 'gi');
-        return place.city.match(regex) || place.state.match(regex)
+        return location.city.match(regex) || location.state.match(regex)
       })
     }  
 
     function showMatches() {
-      console.log(this.value);
+      const matchedArr = locationMatch(this.value, locations);
+      console.log(matchedArr);
     }
 
     const searchInput = document.querySelector('form input[type=text]');
     const suggestions = document.querySelector('.suggestions');
-    searchInput.addEventListener('keydown', showMatches);
+
+    searchInput.addEventListener('change', showMatches);
+    searchInput.addEventListener('keyup', showMatches);
     </script>
   </body>
 </html>

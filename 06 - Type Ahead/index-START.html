@@ -22,12 +22,16 @@
         .then((response) => response.json())
         .then((data) => locations.push(...data));
 
-    function(match, locations) {
+    function locationMatch(match, locations) {
       return locations.filter((location) => {
         const regex = new RegExp(match, 'gi');
-        
+        return place.city.match(regex) || place.state.match(regex)
       })
     }  
+
+    function showMatches() {
+      console.log(this.value);
+    }
     </script>
   </body>
 </html>

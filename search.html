@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="search.css" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script>
+      // JSON with location data
+      const endpoint =
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+      const locations = [];
+
+      // fetching data (locations from above address)
+      fetch(endpoint)
+        .then((response) => response.json())
+        .then((data) => locations.push(...data));
+
+      // Sorting function that matches what is typed in the input to a location from the JSON data
+      function locationMatch(match, locations) {
+        return locations.filter((location) => {
+          const regex = new RegExp(match, "gi");
+          return location.city.match(regex) || location.state.match(regex);
+        });
+      }
+
+      function addCommas(num) {
+        // regex taken from Stack OverFlow member Alan Moore here https://stackoverflow.com/questions/721304/insert-commas-into-number-string
+        return num.toString().replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, "$&,");
+      }
+
+      function showMatches() {
+        // an array with matched locations based off locationMatch filtering
+        const matchedArr = locationMatch(this.value, locations);
+        // returns the HTML for a list with matches based on input value
+        const html = matchedArr.map((location) => {
+          const regex = new RegExp(this.value, "gi");
+          // replacing location.city HTML with a hightlighted version
+          const cityName = location.city.replace(
+            regex,
+            `<span class="hl">${this.value}</span>`
+          );
+          // replacing location.state HTML with a highlighted version
+          const stateName = location.state.replace(
+            regex,
+            `<span class="hl">${this.value}</span>`
+          );
+          return `<li>
+                            <span class="name">${cityName}, ${stateName}</span>
+                            <span class="population">${addCommas(
+                              location.population
+                            )}</span>
+                            </li>`;
+        });
+        suggestions.innerHTML = html;
+      }
+
+      const searchInput = document.querySelector("form input[type=text]");
+      const suggestions = document.querySelector(".suggestions");
+
+      searchInput.addEventListener("change", showMatches);
+      searchInput.addEventListener("keyup", showMatches);
+    </script>
+  </body>
+</html>

@@ -18,7 +18,7 @@
       const endpoint =
         "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
       const locations = [];
-      
+
       // fetching data (locations from above address)
       fetch(endpoint)
         .then((response) => response.json())
@@ -33,7 +33,8 @@
       }
 
       function addCommas(num) {
-        return num.toString().replace(/\d{1,3}(?=(\d{3})+(?!\d))/g , "$&,");
+        // regex taken from Stack OverFlow member Alan Moore here https://stackoverflow.com/questions/721304/insert-commas-into-number-string
+        return num.toString().replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, "$&,");
       }
 
       function showMatches() {
@@ -53,9 +54,11 @@
             `<span class="hl">${this.value}</span>`
           );
           return `<li>
-                <span class="name">${cityName}, ${stateName}</span>
-                <span class="population">${addCommas(location.population)}</span>
-                </li>`;
+                      <span class="name">${cityName}, ${stateName}</span>
+                      <span class="population">${addCommas(
+                        location.population
+                      )}</span>
+                      </li>`;
         });
         suggestions.innerHTML = html;
       }

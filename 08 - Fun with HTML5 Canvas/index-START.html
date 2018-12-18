@@ -7,10 +7,9 @@
   <body>
     <header class="header" id="optionsHeader"><h1>Drawing Options</h1></header>
     <section id="options">
-      <span id="reset">Clear Canvas</span>
-      <label for="lineWidth">Line Thickness</label>
+      <span id="reset">Clear Canvas</span> <label for="lineWidth">Line Thickness</label>
       <select name="lineWidth" id="lineWidth">
-        <option  value="1" selected="selected">1</option>
+        <option value="1" selected="selected">1</option>
         <option value="5">5px</option>
         <option value="10">10px</option>
         <option value="20">20px</option>
@@ -23,8 +22,12 @@
         <option value="90">90px</option>
         <option value="100">100px</option>
       </select>
-      <label for="lineWidth">Line Style</label>
-      <input type="range" name="lineWidth" id="lineWidth" />
+      <label for="lineJoin">Line Join Style</label>
+      <select name="lineJoin" id="lineJoin">
+        <option value="bevel">Bevel</option>
+        <option value="round">Round</option>
+        <option value="miter">Miter</option>
+      </select>
       <label for="lineColor">Line color</label>
       <input type="range" name="lineColor" id="lineColor" />
     </section>
@@ -32,21 +35,18 @@
     <select name="" id=""></select>
 
     <header class="header" id="canvasHeader"><h1>Drawing Surface</h1></header>
-    <section id="canvasContainer">
-      <canvas id="draw" width="1000" height="750"> </canvas>
-    </section>
+    <section id="canvasContainer"><canvas id="draw" width="1000" height="750"> </canvas></section>
     <script>
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
-      const reset = document.querySelector('#reset');
-      const lineWidthSelect = document.querySelector('#lineWidth');
+      const reset = document.querySelector("#reset");
+      const lineWidthSelect = document.querySelector("#lineWidth");
 
-      reset.addEventListener('click', resetFunc)
+      reset.addEventListener("click", resetFunc);
 
       function resetFunc() {
         window.location = location;
       }
-
 
       context.strokeStyle = "#2594F2";
       context.lineJoin = "round";
@@ -85,8 +85,8 @@
         height: 100%;
       }
 
-      body{
-        background: linear-gradient(30deg,rgb(231, 121, 231),rgb(24, 108, 233)) no-repeat;
+      body {
+        background: linear-gradient(30deg, rgb(231, 121, 231), rgb(24, 108, 233)) no-repeat;
         display: flex;
         flex-direction: column;
         align-items: center;

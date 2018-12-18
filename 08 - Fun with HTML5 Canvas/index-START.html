@@ -10,7 +10,7 @@
       <span id="reset">Clear Canvas</span>
       <label for="lineWidth">Line Width</label>
       <select name="lineWidth" id="lineWidth">
-        <option value="1">1</option>
+        <option  value="1" selected="selected">1</option>
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="20">20</option>
@@ -32,7 +32,10 @@
       <canvas id="draw" width="1000" height="750"> </canvas>
     </section>
     <script>
+      const canvas = document.querySelector("canvas");
+      const context = canvas.getContext("2d");
       const reset = document.querySelector('#reset');
+      const lineWidthSelect = document.querySelector('#lineWidth');
 
       reset.addEventListener('click', resetFunc)
 
@@ -40,14 +43,10 @@
         window.location = location;
       }
 
-      const canvas = document.querySelector("canvas");
-      const context = canvas.getContext("2d");
-
 
       context.strokeStyle = "#2594F2";
       context.lineJoin = "round";
       context.lineCap = "round";
-      context.lineWidth = 10;
 
       let hue = 0;
       let isDrawing = false;
@@ -56,8 +55,7 @@
 
       function draw(e) {
         if (!isDrawing) return;
-
-        // console.log(e);
+        context.lineWidth = lineWidthSelect.value;
         context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
         context.beginPath();
         context.moveTo(lastX, lastY);

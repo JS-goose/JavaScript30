@@ -5,12 +5,14 @@
     <title>HTML5 Canvas</title>
   </head>
   <body>
+    <header class="header" id="optionsHeader"><h1>Drawing Options</h1></header>
     <section id="options">
       <input type="range" name="lineWidth" id="lineWidth" />
       <input type="range" name="lineWidth" id="lineWidth" />
       <input type="range" name="lineColor" id="lineColor" />
     </section>
 
+    <header class="header" id="canvasHeader"><h1>Drawing Surface</h1></header>
     <section id="canvasContainer">
       <canvas id="draw" width="800" height="800"> </canvas>
     </section>
@@ -18,8 +20,8 @@
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
 
-      canvas.height = window.innerHeight-100;
-      canvas.width = window.innerWidth-100;
+      canvas.height = window.innerHeight-220;
+      canvas.width = window.innerWidth-80;
       context.strokeStyle = "#2594F2";
       context.lineJoin = "round";
       context.lineCap = "round";
@@ -57,8 +59,15 @@
       body {
         margin: 0;
       }
-      canvas {
-        border: 1px solid black;
+
+      body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #canvasContainer {
+        border: 5px solid black;
+        box-shadow: 3px 3px 5px grey;
       }
     </style>
   </body>

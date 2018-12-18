@@ -24,7 +24,7 @@
       </select>
       <label for="lineJoin">Line Join Style</label>
       <select name="lineJoin" id="lineJoin">
-        <option value="bevel">Bevel</option>
+        <option value="bevel" selected='selected'>Bevel</option>
         <option value="round">Round</option>
         <option value="miter">Miter</option>
       </select>
@@ -41,6 +41,7 @@
       const context = canvas.getContext("2d");
       const reset = document.querySelector("#reset");
       const lineWidthSelect = document.querySelector("#lineWidth");
+      const lineJoinSelect = document.querySelector('#lineJoin');
 
       reset.addEventListener("click", resetFunc);
 
@@ -49,7 +50,7 @@
       }
 
       context.strokeStyle = "#2594F2";
-      context.lineJoin = "round";
+      // context.lineJoin = "round";
       context.lineCap = "round";
 
       let hue = 0;
@@ -60,6 +61,7 @@
       function draw(e) {
         if (!isDrawing) return;
         context.lineWidth = lineWidthSelect.value;
+        context.lineJoin = lineJoinSelect.value;
         context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
         context.beginPath();
         context.moveTo(lastX, lastY);

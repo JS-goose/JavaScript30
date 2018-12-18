@@ -5,7 +5,15 @@
     <title>HTML5 Canvas</title>
   </head>
   <body>
-    <canvas id="draw" width="800" height="800"></canvas>
+    <section id="options">
+      <input type="range" name="lineWidth" id="lineWidth" />
+      <input type="range" name="lineWidth" id="lineWidth" />
+      <input type="range" name="lineColor" id="lineColor" />
+    </section>
+
+    <section id="canvasContainer">
+      <canvas id="draw" width="800" height="800"> </canvas>
+    </section>
     <script>
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
@@ -48,6 +56,9 @@
       html,
       body {
         margin: 0;
+      }
+      canvas {
+        border: 1px solid black;
       }
     </style>
   </body>

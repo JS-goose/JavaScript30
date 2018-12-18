@@ -7,7 +7,7 @@
   <body>
     <header class="header" id="optionsHeader"><h1>Drawing Options</h1></header>
     <section id="options">
-      <span id="reset">reset button</span>
+      <span id="reset">Clear Canvas</span>
       <input type="range" name="lineWidth" id="lineWidth" />
       <input type="range" name="lineWidth" id="lineWidth" />
       <input type="range" name="lineColor" id="lineColor" />
@@ -76,6 +76,12 @@
       #canvasContainer {
         border: 2px solid black;
         box-shadow: 3px 3px 5px grey;
+      }
+
+      #reset {
+        border: 1px solid black;
+        border-radius: 2px;
+        padding: 10px;
       }
     </style>
   </body>

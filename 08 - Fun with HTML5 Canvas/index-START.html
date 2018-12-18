@@ -7,22 +7,29 @@
   <body>
     <header class="header" id="optionsHeader"><h1>Drawing Options</h1></header>
     <section id="options">
+      <span id="reset">reset button</span>
       <input type="range" name="lineWidth" id="lineWidth" />
       <input type="range" name="lineWidth" id="lineWidth" />
       <input type="range" name="lineColor" id="lineColor" />
     </section>
 
     <header class="header" id="canvasHeader"><h1>Drawing Surface</h1></header>
-    <span id="reset">reset button</span>
     <section id="canvasContainer">
-      <canvas id="draw" width="800" height="800"> </canvas>
+      <canvas id="draw" width="1000" height="750"> </canvas>
     </section>
     <script>
+      const reset = document.querySelector('#reset');
+
+      reset.addEventListener('click', resetFunc)
+
+      function resetFunc() {
+        window.location = location;
+      }
+
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
 
-      canvas.height = window.innerHeight-220;
-      canvas.width = window.innerWidth-80;
+
       context.strokeStyle = "#2594F2";
       context.lineJoin = "round";
       context.lineCap = "round";
@@ -67,7 +74,7 @@
         align-items: center;
       }
       #canvasContainer {
-        border: 5px solid black;
+        border: 2px solid black;
         box-shadow: 3px 3px 5px grey;
       }
     </style>

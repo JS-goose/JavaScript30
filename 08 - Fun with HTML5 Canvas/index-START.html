@@ -36,8 +36,6 @@
       </select>
     </section>
 
-    <select name="" id=""></select>
-
     <header class="header" id="canvasHeader"><h1>Drawing Surface</h1></header>
     <section id="canvasContainer"><canvas id="draw" width="1000" height="750"> </canvas></section>
     <script>
@@ -53,10 +51,6 @@
       function resetFunc() {
         window.location = location;
       }
-
-      // context.strokeStyle = "#2594F2";
-      // context.lineJoin = "round";
-      context.lineCap = "round";
 
       let hue = 0;
       let isDrawing = false;
@@ -74,7 +68,7 @@
         context.lineTo(e.offsetX, e.offsetY);
         context.stroke();
         [lastX, lastY] = [e.offsetX, e.offsetY];
-        hue++;
+        hue--;
       }
 
       canvas.addEventListener("mousedown", (e) => {

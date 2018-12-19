@@ -46,6 +46,7 @@
       const reset = document.querySelector("#reset");
       const lineWidthSelect = document.querySelector("#lineWidth");
       const lineJoinSelect = document.querySelector('#lineJoin');
+      const lineCapSelect = document.querySelector('#lineCap');
 
       reset.addEventListener("click", resetFunc);
 
@@ -53,7 +54,7 @@
         window.location = location;
       }
 
-      context.strokeStyle = "#2594F2";
+      // context.strokeStyle = "#2594F2";
       // context.lineJoin = "round";
       context.lineCap = "round";
 
@@ -66,6 +67,7 @@
         if (!isDrawing) return;
         context.lineWidth = lineWidthSelect.value;
         context.lineJoin = lineJoinSelect.value;
+        context.lineCap = lineCapSelect.value;
         context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
         context.beginPath();
         context.moveTo(lastX, lastY);

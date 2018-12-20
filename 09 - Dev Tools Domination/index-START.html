@@ -1,46 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+      const dogs = [{ name: "Snickers", age: 2 }, { name: "hugo", age: 8 }];
 
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+      // Table
+      console.table(dogs);
 
-    function makeGreen() {
-      const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
+      // Regular
+      console.log("I am a robot!");
 
-    // Regular
+      // Interpolated
+      console.log("This is a %s bacon", "piece");
 
-    // Interpolated
+      // Styled
+      console.log("%c This text is blue", "color: orange; font-family: serif;");
 
-    // Styled
+      // warning!
+      console.warn("This is a warning!");
 
-    // warning!
+      // Error :|
+      console.error("This is an error!");
 
-    // Error :|
+      // Info
+      console.info("This is information");
 
-    // Info
+      // Testing
+      const p = document.querySelector("p");
+      console.assert(p.classList.contains("bounce"), "This is incorrect!");
 
-    // Testing
+      // clearing
+      // console.clear();
 
-    // clearing
+      // Viewing DOM Elements
+      console.dir(p);
 
-    // Viewing DOM Elements
+      // Grouping together
+      console.group("string here");
+      console.groupEnd("string here");
+      // console.groupCollapsed('speedy')
 
-    // Grouping together
-
-    // counting
-
-    // timing
-
-  </script>
-</body>
+      // counting
+      // This method will tell me how many times I've used a certain item (string, number, boolean, etc)
+      console.count("bacon");
+      console.count("bacon");
+      console.count("Jon");
+      console.count("bacon");
+      console.count("bacon");
+      console.count("on");
+      console.count("back");
+      console.count("bacon");
+      
+      // timing
+      console.time("name here");
+      //fetching data here or other asynchronous JavaScript
+      fetch("https://api.github.com/users/js-goose")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("name here");
+          console.log(data);
+        });
+    </script>
+  </body>
 </html>

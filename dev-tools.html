@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [{ name: "Snickers", age: 2 }, { name: "hugo", age: 8 }];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+      // Table
+      console.table(dogs);
+
+      // Regular
+      console.log("I am a robot!");
+
+      // Interpolated
+      console.log("This is a %s bacon", "piece");
+
+      // Styled
+      console.log("%c This text is blue", "color: orange; font-family: serif;");
+
+      // warning!
+      console.warn("This is a warning!");
+
+      // Error :|
+      console.error("This is an error!");
+
+      // Info
+      console.info("This is information");
+
+      // Testing
+      const p = document.querySelector("p");
+      console.assert(p.classList.contains("bounce"), "This is incorrect!");
+
+      // clearing
+      // console.clear();
+
+      // Viewing DOM Elements
+      console.dir(p);
+
+      // Grouping together
+      console.group("string here");
+      console.groupEnd("string here");
+      // console.groupCollapsed('speedy')
+
+      // counting
+      // This method will tell me how many times I've used a certain item (string, number, boolean, etc)
+      console.count("bacon");
+      console.count("bacon");
+      console.count("Jon");
+      console.count("bacon");
+      console.count("bacon");
+      console.count("on");
+      console.count("back");
+      console.count("bacon");
+
+      // timing
+      console.time("name here");
+      //fetching data here or other asynchronous JavaScript
+      fetch("https://api.github.com/users/js-goose")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("name here");
+          console.log(data);
+        });
+
+    </script>
+  </body>
+</html>

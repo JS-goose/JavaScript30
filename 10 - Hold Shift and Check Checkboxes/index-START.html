@@ -58,6 +58,12 @@
         font-weight: 200;
         border-left: 1px solid #d1e2ff;
       }
+
+      .checked {
+        background-color: red;
+        transition: all 0.2s;
+        font-weight: bold;
+      }
     </style>
     <h1 id="title">Super Hero To Dos!</h1>
     <!--
@@ -107,6 +113,7 @@
 
     <script>
       const checkboxes = [...document.querySelectorAll("input[type=checkbox]")];
+      const items = document.querySelectorAll('.item');
       let lastChecked;
 
       function clickHandler(e) {

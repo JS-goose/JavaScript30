@@ -95,19 +95,24 @@
     </div>
 
     <script>
-    const checkboxes = [...document.querySelectorAll('input[type=checkbox]')];
-    let lastChecked;
+      const checkboxes = [...document.querySelectorAll("input[type=checkbox]")];
+      let lastChecked;
 
-    function clickHandler(e) {
-      if (e.shiftKey && this.checked) {
+      function clickHandler(e) {
+        let between = false;
+        if (e.shiftKey && this.checked) {
+          checkboxes.forEach((box) => {
+            if (box === this || box === lastChecked) {
+            }
+          });
+        }
+        lastChecked = this;
+        console.log(clicked);
       }
-      lastChecked = this;
-      console.log(clicked)
-    }
 
-    checkboxes.forEach((box) => {
-     box.addEventListener('click',clickHandler);
-    })
+      checkboxes.forEach((box) => {
+        box.addEventListener("click", clickHandler);
+      });
     </script>
   </body>
 </html>

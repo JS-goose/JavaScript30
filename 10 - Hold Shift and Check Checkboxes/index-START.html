@@ -97,12 +97,16 @@
     <script>
     const checkboxes = [...document.querySelectorAll('input[type=checkbox]')];
     const clicked = [];
+    let lastChecked;
+    let firstChecked;
 
     function clickHandler(e) {
+      firstChecked = clicked[0];
       if (this.checked) {
         clicked.push(this);
       }
       console.log(clicked)
+      lastChecked = this;
     }
 
     checkboxes.forEach((box) => {

@@ -96,7 +96,19 @@
 
     <script>
     const checkboxes = [...document.querySelectorAll('input[type=checkbox]')];
-    console.log(checkboxes);
+    const clicked = [];
+
+    function clickHandler(e) {
+      if (this.checked) {
+        clicked.push(this);
+      }
+      console.log(clicked)
+    }
+
+    checkboxes.forEach((box) => {
+     box.addEventListener('click',clickHandler);
+    })
+    // console.log(checkboxes);
     </script>
   </body>
 </html>

@@ -60,7 +60,6 @@
       }
 
       .checked {
-        background-color: red;
         color: red;
         transition: all 0.2s;
         font-weight: bolder;
@@ -134,10 +133,10 @@
       }
 
       function styleHandler(e) {
-          this.classList.toggle("checked");
-          if (this.classList === 'checked') {
-            this.classList === ' ';
-          }
+        this.classList.toggle("checked");
+        if (this.classList === "checked") {
+          this.classList === " ";
+        }
       }
 
       items.forEach((item) => {

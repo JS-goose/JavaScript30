@@ -132,6 +132,10 @@
         lastChecked = this;
       }
 
+      items.forEach((item) => {
+        item.addEventListener("click", styleHandler);
+      })
+
       checkboxes.forEach((box) => {
         box.addEventListener("click", clickHandler);
       });

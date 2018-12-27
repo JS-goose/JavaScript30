@@ -103,11 +103,15 @@
         if (e.shiftKey && this.checked) {
           checkboxes.forEach((box) => {
             if (box === this || box === lastChecked) {
+              between = !between;
+            }
+
+            if (between) {
+              box.checked = true;
             }
           });
         }
         lastChecked = this;
-        console.log(clicked);
       }
 
       checkboxes.forEach((box) => {

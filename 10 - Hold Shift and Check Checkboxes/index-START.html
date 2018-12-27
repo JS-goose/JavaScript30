@@ -61,8 +61,9 @@
 
       .checked {
         background-color: red;
+        color: red;
         transition: all 0.2s;
-        font-weight: bold;
+        font-weight: bolder;
       }
     </style>
     <h1 id="title">Super Hero To Dos!</h1>
@@ -113,7 +114,7 @@
 
     <script>
       const checkboxes = [...document.querySelectorAll("input[type=checkbox]")];
-      const items = document.querySelectorAll('.item');
+      const items = [...document.querySelectorAll(".item")];
       let lastChecked;
 
       function clickHandler(e) {
@@ -132,9 +133,16 @@
         lastChecked = this;
       }
 
+      function styleHandler(e) {
+          this.classList.toggle("checked");
+          if (this.classList === 'checked') {
+            this.classList === ' ';
+          }
+      }
+
       items.forEach((item) => {
         item.addEventListener("click", styleHandler);
-      })
+      });
 
       checkboxes.forEach((box) => {
         box.addEventListener("click", clickHandler);

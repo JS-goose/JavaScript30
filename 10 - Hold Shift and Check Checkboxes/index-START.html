@@ -102,17 +102,16 @@
 
     function clickHandler(e) {
       firstChecked = clicked[0];
-      if (this.checked) {
-        clicked.push(this);
+      if (e.shiftKey && this.checked) {
+        clicked.push(this)
       }
-      console.log(clicked)
       lastChecked = this;
+      console.log(clicked)
     }
 
     checkboxes.forEach((box) => {
      box.addEventListener('click',clickHandler);
     })
-    // console.log(checkboxes);
     </script>
   </body>
 </html>

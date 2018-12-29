@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hold Shift to Check Multiple Checkboxes - Super Hero Edition</title>
+  </head>
+  <body>
+    <style>
+      html {
+        font-family: sans-serif;
+        /* Image used from Pintrest https://www.pinterest.com/pin/243405554839604683/?lp=true */
+        background: url(hero.jpg) no-repeat center;
+        background-size: cover;
+      }
+
+      #title {
+        font-size: 3em;
+        color: white;
+        text-align: center;
+        text-shadow: 1px 1px 5px black;
+      }
+
+      .inbox {
+        max-width: 400px;
+        margin: 100px auto;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 10px 10px 0 rgba(12, 12, 12, 0.5);
+        opacity: 0.8;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #f1f1f1;
+      }
+
+      .item:last-child {
+        border-bottom: 0;
+      }
+
+      input:checked + p {
+        background: #f9f9f9;
+        text-decoration: line-through;
+      }
+
+      input[type="checkbox"] {
+        margin: 20px;
+      }
+
+      p {
+        margin: 0;
+        padding: 20px;
+        transition: background 0.2s;
+        flex: 1;
+        font-family: "helvetica neue";
+        font-size: 20px;
+        font-weight: 200;
+        border-left: 1px solid #d1e2ff;
+      }
+
+      .checked {
+        color: red;
+        transition: all 0.2s;
+        font-weight: bolder;
+      }
+    </style>
+    <h1 id="title">Super Hero To Do List!</h1>
+    <!--
+   The following is a common layout you would see in an email client.
+
+   When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  -->
+    <div class="inbox">
+      <div class="item">
+        <input type="checkbox" />
+        <p>Call Camp Half-Blood</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Replace bulb in Bat-signal</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Restitch the "S" on uniform</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Clean trident</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Scrub 'Deadpool sux' off the side of base</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Slay Voldemort</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Find invisible jet</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Remind Hulk to take a shower</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Ask Logan to sharpen claws outside</p>
+      </div>
+    </div>
+
+    <script>
+      const checkboxes = [...document.querySelectorAll("input[type=checkbox]")];
+      const items = [...document.querySelectorAll(".item")];
+      let lastChecked;
+
+      function clickHandler(e) {
+        let between = false;
+        if (e.shiftKey && this.checked) {
+          checkboxes.forEach((box) => {
+            if (box === this || box === lastChecked) {
+              between = !between;
+            }
+
+            if (between) {
+              box.checked = true;
+            }
+          });
+        }
+        lastChecked = this;
+      }
+
+      function styleHandler(e) {
+        this.classList.toggle("checked");
+        if (this.classList === "checked") {
+          this.classList === " ";
+        }
+      }
+
+      items.forEach((item) => {
+        item.addEventListener("click", styleHandler);
+      });
+
+      checkboxes.forEach((box) => {
+        box.addEventListener("click", clickHandler);
+      });
+    </script>
+  </body>
+</html>

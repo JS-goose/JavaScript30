@@ -40,8 +40,11 @@
       }
 
       input:checked + p {
-        background: #f9f9f9;
         text-decoration: line-through;
+        color: white;
+        background-color: red;
+        border-radius: 5px;
+
       }
 
       input[type="checkbox"] {
@@ -60,6 +63,7 @@
       }
 
       .checked {
+        background-color: red;
         color: red;
         transition: all 0.2s;
         font-weight: bolder;
@@ -113,7 +117,6 @@
 
     <script>
       const checkboxes = [...document.querySelectorAll("input[type=checkbox]")];
-      const items = [...document.querySelectorAll(".item")];
       let lastChecked;
 
       function clickHandler(e) {
@@ -131,17 +134,6 @@
         }
         lastChecked = this;
       }
-
-      function styleHandler(e) {
-        this.classList.toggle("checked");
-        if (this.classList === "checked") {
-          this.classList === " ";
-        }
-      }
-
-      items.forEach((item) => {
-        item.addEventListener("click", styleHandler);
-      });
 
       checkboxes.forEach((box) => {
         box.addEventListener("click", clickHandler);

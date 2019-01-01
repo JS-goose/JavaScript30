@@ -6,3 +6,8 @@ const progressFilled = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipBtns = player.querySelectorAll('[data-skip]');
 const sliders = player.querySelectorAll('.player__slider');
+
+//Actions
+
+
+//Connect Event Listeners

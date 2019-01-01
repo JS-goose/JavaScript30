@@ -106,9 +106,12 @@ body {
 
 /* unholy css to style input type="range" */
 .slider__text {
+  display: flex;
   color: #ffc600;
   text-shadow: 1px 1px 1px black;
-  text-align: right;
+  justify-content: right;
+  align-items: center;
+  padding-right: 10px;
 }
 
 input[type=range] {

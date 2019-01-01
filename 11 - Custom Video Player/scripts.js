@@ -17,3 +17,4 @@ function playVideo() {
 }
 
 //Connect Event Listeners
+toggle.addEventListener('click', playVideo);

@@ -23,8 +23,8 @@ body {
   border: 5px solid rgba(0,0,0,0.2);
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
-  font-size: 0;
-  overflow: hidden;
+  /* font-size: 0; */
+  /* overflow: hidden; */
 }
 
 /* This css is only applied when fullscreen is active. */
@@ -105,6 +105,11 @@ body {
 }
 
 /* unholy css to style input type="range" */
+.slider__text {
+  color: #ffc600;
+  text-shadow: 1px 1px 1px black;
+  text-align: right;
+}
 
 input[type=range] {
   -webkit-appearance: none;

@@ -23,8 +23,8 @@ body {
   border: 5px solid rgba(0,0,0,0.2);
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
-  /* font-size: 0; */
-  /* overflow: hidden; */
+  font-size: 15px;
+  overflow: hidden;
 }
 
 /* This css is only applied when fullscreen is active. */

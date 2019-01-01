@@ -8,6 +8,12 @@ const skipBtns = player.querySelectorAll('[data-skip]');
 const sliders = player.querySelectorAll('.player__slider');
 
 //Actions
-
+function playVideo() {
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+}
 
 //Connect Event Listeners

@@ -16,5 +16,10 @@ function playVideo() {
     }
 }
 
+function updatePlayButton() {
+    console.log(this);
+}
 //Connect Event Listeners
+video.addEventListener('click', playVideo);
+video.addEventListener('play', updatePlayButton);
 toggle.addEventListener('click', playVideo);

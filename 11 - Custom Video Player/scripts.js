@@ -22,13 +22,13 @@ function updatePlayButton() {
 }
 
 function skip() {
-  if(this.dataset.skip === "-10") {
-      console.log(video.currentTime)
-      video.currentTime -= 10
-  } 
+  if (this.dataset.skip === "-10") {
+    console.log(video.currentTime);
+    video.currentTime -= 10;
+  }
 
   if (this.dataset.skip === "25") {
-    console.log(video.currentTime)
+    console.log(video.currentTime);
     video.currentTime += 25;
   }
 }
@@ -39,3 +39,4 @@ video.addEventListener("play", updatePlayButton);
 video.addEventListener("pause", updatePlayButton);
 toggle.addEventListener("click", playVideo);
 skipBtns.forEach((item) => item.addEventListener("click", skip));
+sliders.forEach((item) => item.addEventListener("change", updateSlider));

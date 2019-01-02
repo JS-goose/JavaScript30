@@ -46,14 +46,15 @@ function updateSlider() {
 }
 
 function updateVideoProgress() {
-    const percentage = (video.currentTime / video.duration) * 100;
-    progressFilled.style.flexBasis = ${percentage};
+  const percentage = (video.currentTime / video.duration) * 100;
+  progressFilled.style.flexBasis = `${percentage}%`;
 }
 
 //Connect Event Listeners
 video.addEventListener("click", playVideo);
 video.addEventListener("play", updatePlayButton);
 video.addEventListener("pause", updatePlayButton);
+video.addEventListener("timeupdate", updateVideoProgress);
 toggle.addEventListener("click", playVideo);
 skipBtns.forEach((item) => item.addEventListener("click", skip));
 sliders.forEach((item) => item.addEventListener("change", updateSlider));

@@ -50,6 +50,11 @@ function updateVideoProgress() {
   progressFilled.style.flexBasis = `${percentage}%`;
 }
 
+function videoScrub(e) {
+  const percent = e.layerX;
+  console.log(percent);
+}
+
 //Connect Event Listeners
 video.addEventListener("click", playVideo);
 video.addEventListener("play", updatePlayButton);
@@ -58,3 +63,4 @@ video.addEventListener("timeupdate", updateVideoProgress);
 toggle.addEventListener("click", playVideo);
 skipBtns.forEach((item) => item.addEventListener("click", skip));
 sliders.forEach((item) => item.addEventListener("change", updateSlider));
+progress.addEventListener("click", videoScrub);

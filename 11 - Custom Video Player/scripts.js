@@ -45,6 +45,11 @@ function updateSlider() {
   }
 }
 
+function updateVideoProgress() {
+    const percentage = (video.currentTime / video.duration) * 100;
+    progressFilled.style.flexBasis = ${percentage};
+}
+
 //Connect Event Listeners
 video.addEventListener("click", playVideo);
 video.addEventListener("play", updatePlayButton);

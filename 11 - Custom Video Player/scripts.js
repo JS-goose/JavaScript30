@@ -33,6 +33,18 @@ function skip() {
   }
 }
 
+function updateSlider() {
+  if (this.name === "volume") {
+    video.volume = this.value;
+    console.log(video.volume);
+  }
+
+  if (this.name === "playbackRate") {
+    video.playbackRate = this.value;
+    console.log(video.playbackRate);
+  }
+}
+
 //Connect Event Listeners
 video.addEventListener("click", playVideo);
 video.addEventListener("play", updatePlayButton);

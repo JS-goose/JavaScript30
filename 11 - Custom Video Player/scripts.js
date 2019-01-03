@@ -51,8 +51,8 @@ function updateVideoProgress() {
 }
 
 function videoScrub(e) {
-  const percent = e.layerX;
-  console.log(percent);
+  const percent = (e.layerX / progress.offsetWidth) * video.duration;
+  video.currentTime = percent;
 }
 
 //Connect Event Listeners
@@ -64,3 +64,7 @@ toggle.addEventListener("click", playVideo);
 skipBtns.forEach((item) => item.addEventListener("click", skip));
 sliders.forEach((item) => item.addEventListener("change", updateSlider));
 progress.addEventListener("click", videoScrub);
+let mousedown = false;
+progress.addEventListener("mousemove", (e) => mousedown && videoScrub(e) );
+progress.addEventListener("mousedown", () => mousedown = true);
+progress.addEventListener("mouseup", () => mousedown = false);

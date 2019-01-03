@@ -23,12 +23,10 @@ function updatePlayButton() {
 
 function skip() {
   if (this.dataset.skip === "-10") {
-    console.log(video.currentTime);
     video.currentTime -= 10;
   }
 
   if (this.dataset.skip === "25") {
-    console.log(video.currentTime);
     video.currentTime += 25;
   }
 }
@@ -36,12 +34,10 @@ function skip() {
 function updateSlider() {
   if (this.name === "volume") {
     video.volume = this.value;
-    console.log(video.volume);
   }
 
   if (this.name === "playbackRate") {
     video.playbackRate = this.value;
-    console.log(video.playbackRate);
   }
 }
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script
+      type="text/javascript"
+      src="http://www.cornify.com/js/cornify.js"
+    ></script>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      background: linear-gradient(#e66465, #9198e5);
+    }
+    main {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      border: 2px solid white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 1px 1px 5px black;
+    }
+    details {
+      padding-left: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <body>
+    <main>
+      <h1>Try to guess the secret code!</h1>
+      <details class="hidden">
+        Use your arrow keys (up, down, left, right)
+      </details>
+    </main>
+    <script>
+      let keysArr = [];
+      const secretCode = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+      const details = document.querySelector('.hidden');
+      function logKeys(event) {
+        keysArr.push(event.key);
+        keysArr.splice(
+          -secretCode.length - 1,
+          keysArr.length - secretCode.length
+        );
+        if (keysArr[3] === secretCode[3]) {
+          cornify_add(cornify_add());
+        }
+        console.log(keysArr);
+      }
+    
+      window.addEventListener("keyup", (event) => logKeys(event));
+      window.setTimeout(() => details.classList.remove('hidden'),5000);
+    </script>
+  </body>
+</html>

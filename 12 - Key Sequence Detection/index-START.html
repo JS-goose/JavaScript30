@@ -39,11 +39,12 @@
         );
 
         if (keysArr[3] === secretCode[3]) {
-          cornify_add();
+          cornify_add(cornify_add());
         }
         console.log(keysArr);
       }
       window.addEventListener("keyup", (event) => logKeys(event));
+      window.setTimeout(window.alert, 3000, "Use the arrow keys up, down, left, right!")
     </script>
   </body>
 </html>

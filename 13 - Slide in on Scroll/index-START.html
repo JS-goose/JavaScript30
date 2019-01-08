@@ -63,10 +63,10 @@
     function slide(event) {
       images.forEach((image) => {
         //half way rhough the image
-        const slideLoc = (window.scrollY + window.innerHeight) - image.height / 2;
+        const imgTop = (window.scrollY + window.innerHeight) - image.height / 2;
         //bottom of the image
         const imgBtm = image.offsetTop + image.height;
-        const imgHalf = slideLoc > image.offsetTop;
+        const imgHalf = imgTop > image.offsetTop;
         const imgScrolledPast = window.scrollY < imgBtm;
       })
     }

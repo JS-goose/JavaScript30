@@ -61,10 +61,13 @@
     const images = document.querySelectorAll('.slide-in');
 
     function slide(event) {
-      console.log(event);
+      images.forEach((image) => {
+        const slideLoc = (window.scrollY + window.innerHeight);
+        console.log(slideLoc);
+      })
     }
 
-    window.addEventListener('scroll', slide);
+    window.addEventListener('scroll', debounce(slide));
   </script>
 
   <style>

@@ -64,10 +64,10 @@
       images.forEach((image) => {
         //half way rhough the image
         const slideLoc = (window.scrollY + window.innerHeight) - image.height / 2;
-        console.log('half way ' + slideLoc);
         //bottom of the image
         const imgBtm = image.offsetTop + image.height;
-        console.log('bottom ' + imgBtm);
+        const imgHalf = slideLoc > image.offsetTop;
+        const imgScrolledPast = window.scrollY < imgBtm;
       })
     }
 

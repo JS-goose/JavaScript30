@@ -68,6 +68,10 @@
         const imgBtm = image.offsetTop + image.height;
         const imgHalf = imgTop > image.offsetTop;
         const imgScrolledPast = window.scrollY < imgBtm;
+
+        if (imgHalf) {
+          image.classList.add('active');
+        }
       })
     }
 

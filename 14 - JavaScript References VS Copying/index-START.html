@@ -31,9 +31,11 @@
       const players = ["Wes", "Sarah", "Ryan", "Poppy"];
 
       // and we want to make a copy of it.
-
+      const team = players;
+      console.log("players and team ", players);
       // You might think we can just do something like this:
-
+      team[3] = 'Bill';
+      console.log("***team after changes ", team);
       // however what happens when we update that array?
 
       // now here is the problem!
@@ -43,13 +45,19 @@
       // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
       // So, how do we fix this? We take a copy instead!
-
+      team2 = players.slice();
+      team2[1] = "Jamie";
+      console.log("***team2*** ",team2)
       // one way
-
+      
       // or create a new array and concat the old one in
-
+      const team3 = [].concat(players);
+      team3[1] = "Jessica";
+      console.log("***team3*** ",team3);
       // or use the new ES6 Spread
-
+      const team4 = [...players];
+      team4[0] = "Brenda";
+      console.log("***team4*** ",team4);
       // now when we update it, the original one isn't changed
 
       // The same thing goes for objects, let's say we have a person object

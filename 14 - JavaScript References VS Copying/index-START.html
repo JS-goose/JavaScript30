@@ -97,7 +97,7 @@
       let meCopy = Object.assign({},me);
       console.log(meCopy);
 
-      // Poor man's deep clone 
+      // Poor man's deep clone - turns object into string with JSON.stringify() and then back into an object with JSON.parse()
       let me2 = JSON.parse(JSON.stringify(me));
       console.log(me2);
     </script>

@@ -65,12 +65,13 @@
           text,
           done: false
         }
-        this.reset();
         items.push(item)
+        fillList(items,itemsList);
+        this.reset();
       }
 
       function fillList(items=[],platesList) {
-        platesList.innerHtml = items.map((item,index) => {
+        platesList.innerHTML = items.map((item,index) => {
           return `
             <li>
               ${item.text}  

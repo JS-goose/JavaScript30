@@ -67,6 +67,7 @@
         }
         items.push(item)
         fillList(items,itemsList);
+        localStorage.setItem("index", JSON.stringify(items));
         this.reset();
       }
 

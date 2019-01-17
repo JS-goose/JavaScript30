@@ -60,6 +60,7 @@
       const removeAllItems = document.querySelector("#remove");
       const checkAllItems = document.querySelector("#checkAll");
       const itemsList = document.querySelector(".plates");
+      const listItem = document.querySelector(".listItems");
       const items = JSON.parse(localStorage.getItem("items")) || [];
 
       function addItem(event) {
@@ -81,7 +82,7 @@
           .map((item, index) => {
             return `
             <li>
-              <input type="checkbox" data-index=${index} id="item${index}" ${
+              <input type="checkbox" data-index=${index} class="listItems" id="item${index}" ${
               item.done ? "checked" : ""
             }/>
               <label for="item${index}">${item.text}</label>  
@@ -105,8 +106,11 @@
         window.location = window.location;
       }
 
-      function checkItems() {
-        
+      function checkItems(event) {
+        items.forEach((item) => {
+        item.done = true;
+        item.done ? item.checked = true : ""
+        })
       }
 
       // Event Listeners

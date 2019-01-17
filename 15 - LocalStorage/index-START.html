@@ -50,13 +50,15 @@
       <form class="add-items">
         <input type="text" name="item" placeholder="Item Name" required />
         <input type="submit" value="+ Add Item" />
-        <input type="submit" value="&#10004 Check All">
-        <input type="submit" value="- Remove All" />
+        <input type="submit" value="&#10004 Check All" id="checkAll">
+        <input type="submit" value="- Remove All" id="remove"/>
       </form>
     </div>
 
     <script>
       const addItems = document.querySelector(".add-items");
+      const removeAllItems = addItems.querySelector("#remove");
+      const checkAllItems = addItems.querySelector("#checkAll");
       const itemsList = document.querySelector(".plates");
       const items = JSON.parse(localStorage.getItem("items")) || [];
 

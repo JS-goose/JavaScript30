@@ -99,15 +99,22 @@
         localStorage.setItem('items', JSON.stringify(items))     
       }
 
-      function removeItems(event) {
+      function removeItems() {
         localStorage.clear();
         items.length = 0;
         window.location = window.location;
       }
 
+      function checkItems() {
+        
+      }
+
+      // Event Listeners
       addItems.addEventListener("submit", addItem);
       removeAllItems.addEventListener("click", removeItems);
       itemsList.addEventListener("click", checkToggle);
+      checkAllItems.addEventListener("click", checkItems)
+
       fillList(items, itemsList);
     </script>
   </body>

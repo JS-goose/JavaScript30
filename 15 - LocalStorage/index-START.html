@@ -48,21 +48,22 @@
         <li>Loading Tapas...</li>
       </ul>
       <form class="add-items">
-        <input type="text" name="item" placeholder="Item Name" required />
-        <input type="submit" value="+ Add Item" />
-        <input type="submit" value="&#10004 Check All" id="checkAll">
-        <input type="submit" value="- Remove All" id="remove"/>
+        <input type="text" name="item" placeholder="Item Name" required/>
+        <input type="submit" value="+ Add Item" id="addItems"/>
       </form>
+      <input type="submit" value="&#10004 Check All" id="checkAll">
+      <input type="submit" value="- Remove All" id="remove"/>
     </div>
 
     <script>
       const addItems = document.querySelector(".add-items");
-      const removeAllItems = addItems.querySelector("#remove");
-      const checkAllItems = addItems.querySelector("#checkAll");
+      const removeAllItems = document.querySelector("#remove");
+      const checkAllItems = document.querySelector("#checkAll");
       const itemsList = document.querySelector(".plates");
       const items = JSON.parse(localStorage.getItem("items")) || [];
 
       function addItem(event) {
+        console.log(event);
         event.preventDefault();
         const text = this.querySelector("input[name=item]").value;
         const item = {
@@ -98,7 +99,14 @@
         localStorage.setItem('items', JSON.stringify(items))     
       }
 
+      function removeItems(event) {
+        localStorage.clear();
+        items.length = 0;
+        window.location = window.location;
+      }
+
       addItems.addEventListener("submit", addItem);
+      removeAllItems.addEventListener("click", removeItems);
       itemsList.addEventListener("click", checkToggle);
       fillList(items, itemsList);
     </script>

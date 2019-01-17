@@ -60,6 +60,7 @@
       const itemsList = document.querySelector(".plates");
       const items = JSON.parse(localStorage.getItem("items")) || [];
 
+      // Creates food item and pushes it to item array and sets items to local storage
       function addItem(event) {
         event.preventDefault();
         const text = this.querySelector("input[name=item]").value;
@@ -73,6 +74,7 @@
         this.reset();
       }
 
+      // Creates and attaches items to the list
       function fillList(items = [], platesList) {
         platesList.innerHTML = items
           .map((item, index) => {
@@ -88,6 +90,7 @@
           .join("");
       }
 
+      // If target = add item button, sets items to local storage and sets their done property
       function checkToggle(event) {
         if (!event.target.matches("input")) return;
         const element = event.target;
@@ -96,6 +99,7 @@
         localStorage.setItem('items', JSON.stringify(items))     
       }
 
+      // Removes all items from list and local storage
       function removeItems() {
         localStorage.clear();
         items.length = 0;

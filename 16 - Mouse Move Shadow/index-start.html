@@ -37,6 +37,12 @@
 <script>
   const hero = document.querySelector('.hero');
   const heroTxt = hero.querySelector('h1');
+
+  function shadow(event) {
+    hero.style.textShadow = `${event.offsetX} ${event.offsetY} 0 rgba(0,0,0,1);`;
+  }
+
+  hero.addEventListener('mousemove', shadow);
 </script>
 </body>
 </html>

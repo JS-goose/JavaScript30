@@ -45,10 +45,15 @@
           yLoc = yLoc + event.target.offsetTop;
         }
 
-        const xWalk = Math.round((xLoc / width * walk) - (walk / 2));
-        const yWalk = Math.round((yLoc / height * walk) - (walk / 2));
+        const xWalk = Math.round((xLoc / width) * walk - walk / 2);
+        const yWalk = Math.round((yLoc / height) * walk - walk / 2);
 
-        heroTxt.style.textShadow = `${xWalk}px ${yWalk}px 0 blue`
+        heroTxt.style.textShadow = `
+        ${xWalk}px ${yWalk}px 0 blue, 
+        ${xWalk * -1}px ${yWalk}px 0 orange,
+        ${xWalk}px ${yWalk * -1}px 0 gray,
+        ${xWalk*-1}px ${yWalk*-1}px 0 red
+        `;
       }
 
       hero.addEventListener("mousemove", shadow);

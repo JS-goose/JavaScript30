@@ -39,7 +39,9 @@
   const heroTxt = hero.querySelector('h1');
 
   function shadow(event) {
-    hero.style.textShadow = `${event.offsetX} ${event.offsetY} 0 rgba(0,0,0,1);`;
+    // hero.style.textShadow = `${event.offsetX} ${event.offsetY} 0 rgba(0,0,0,1);`;
+    const { offsetWidth : width, offsetHeight : height } = hero;
+    let cursorLoc = { offsetX : xLoc, offsetY : yLoc } = event;
   }
 
   hero.addEventListener('mousemove', shadow);

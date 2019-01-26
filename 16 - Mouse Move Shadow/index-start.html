@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Mouse Shadow</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mouse Shadow</title>
+  </head>
+  <body>
+    <div class="hero"><h1 contenteditable>🔥WOAH!</h1></div>
 
-  <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
-  </div>
+    <style>
+      html {
+        color: black;
+        font-family: sans-serif;
+      }
 
-  <style>
-  html {
-    color: black;
-    font-family: sans-serif;
-  }
+      body {
+        margin: 0;
+      }
 
-  body {
-    margin: 0;
-  }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+      }
 
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-  }
+      h1 {
+        text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+        font-size: 100px;
+      }
+    </style>
 
-  h1 {
-    text-shadow: 10px 10px 0 rgba(0,0,0,1);
-    font-size: 100px;
-  }
-  </style>
+    <script>
+      const hero = document.querySelector(".hero");
+      const heroTxt = hero.querySelector("h1");
+      const walk = 100;
 
-<script>
-  const hero = document.querySelector('.hero');
-  const heroTxt = hero.querySelector('h1');
+      function shadow(event) {
+        const { offsetWidth: width, offsetHeight: height } = hero;
+        let cursorLoc = ({ offsetX: xLoc, offsetY: yLoc } = event);
 
-  function shadow(event) {
-    // hero.style.textShadow = `${event.offsetX} ${event.offsetY} 0 rgba(0,0,0,1);`;
-    const { offsetWidth : width, offsetHeight : height } = hero;
-    let cursorLoc = { offsetX : xLoc, offsetY : yLoc } = event;
+        if (this !== event.target) {
+          xLoc = xLoc + event.target.offsetLeft;
+          yLoc = yLoc + event.target.offsetTop;
+        }
 
-    if (this !== event.target) {
-      x = x + event.target.offsetLeft;
-      y = y + event.target.offsetTop;
-    }
-  }
+        const xWalk = Math.round((xLoc / width) * walk - walk / 2);
+        const yWalk = Math.round((yLoc / height) * walk - walk / 2);
 
-  hero.addEventListener('mousemove', shadow);
-</script>
-</body>
+      }
+
+      hero.addEventListener("mousemove", shadow);
+    </script>
+  </body>
 </html>

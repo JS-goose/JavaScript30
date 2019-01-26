@@ -29,6 +29,7 @@
       h1 {
         text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
         font-size: 100px;
+        -webkit-text-stroke: 1px rgb(0, 204, 255);
       }
     </style>
 
@@ -50,10 +51,10 @@
         const yWalk = Math.round((yLoc / height) * walk - walk / 2);
 
         heroTxt.style.textShadow = `
-        ${xWalk}px ${yWalk}px 0 blue, 
+        ${xWalk}px ${yWalk}px 0 rgb(68, 189, 230), 
         ${xWalk * -1}px ${yWalk}px 0 orange,
-        ${xWalk}px ${yWalk * -1}px 0 gray,
-        ${xWalk*-1}px ${yWalk*-1}px 0 red
+        ${xWalk}px ${yWalk * -1}px 0 lightcoral,
+        ${xWalk*-1}px ${yWalk*-1}px 0 lightseagreen
         `;
       }
 

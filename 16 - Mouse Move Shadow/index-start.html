@@ -38,16 +38,17 @@
 
       function shadow(event) {
         const { offsetWidth: width, offsetHeight: height } = hero;
-        let cursorLoc = ({ offsetX: xLoc, offsetY: yLoc } = event);
+        let { offsetX: xLoc, offsetY: yLoc } = event;
 
         if (this !== event.target) {
           xLoc = xLoc + event.target.offsetLeft;
           yLoc = yLoc + event.target.offsetTop;
         }
 
-        const xWalk = Math.round((xLoc / width) * walk - walk / 2);
-        const yWalk = Math.round((yLoc / height) * walk - walk / 2);
+        const xWalk = Math.round((xLoc / width * walk) - (walk / 2));
+        const yWalk = Math.round((yLoc / height * walk) - (walk / 2));
 
+        heroTxt.style.textShadow = `${xWalk}px ${yWalk}px 0 blue`
       }
 
       hero.addEventListener("mousemove", shadow);

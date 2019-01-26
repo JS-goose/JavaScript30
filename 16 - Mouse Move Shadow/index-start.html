@@ -42,6 +42,11 @@
     // hero.style.textShadow = `${event.offsetX} ${event.offsetY} 0 rgba(0,0,0,1);`;
     const { offsetWidth : width, offsetHeight : height } = hero;
     let cursorLoc = { offsetX : xLoc, offsetY : yLoc } = event;
+
+    if (this !== event.target) {
+      x = x + event.target.offsetLeft;
+      y = y + event.target.offsetTop;
+    }
   }
 
   hero.addEventListener('mousemove', shadow);
